@@ -37,7 +37,7 @@ echo -n "Enter your site name (spaces and special symbols are not allowed):"
 read SITENAME
 echo -n "Enter your domain name:"
 read DOMAIN
-echo -n "Enter URL of git package to clone:"
+echo -n "Enter username for git package to clone:"
 read USERNAME
 echo -n "Enter token to access repository:"
 read TOKEN
@@ -46,7 +46,8 @@ read TOKEN
 # Check if the /var/www/$SITENAME dir exists
 if [ -d "${ROOTDIR}${SITENAME}" ]; then
     echo "Error: directory /var/www/$SITENAME already exists"
-    exit 1
+    rm -r ${ROOTDIR}${SITENAME}
+    #exit 1
 fi
 
 # Creating the working directory
